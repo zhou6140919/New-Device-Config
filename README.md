@@ -102,6 +102,17 @@ git clone https://github.com/github/copilot.vim.git \
 remember to auth
 `:Copilot auth`
 
+5. Download ripgrep for telescope
+```bash
+curl -LO 'https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz'
+tar -zxvf ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+rm ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz
+export PATH="$HOME/rg:$PATH"
+```
+
+6. Mason
+`:MasonInstall stylua beautysh pylint`
+
 ## Zsh
 
 1. (Optional) Install ncurses
