@@ -155,3 +155,8 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 ```bash
 mv ./.zshrc ~/.zshrc
 ```
+
+6. Add `OPENAI_API_KEY` for chatgpt plugin
+```bash
+export OPENAI_API_KEY='sk...'
+```
