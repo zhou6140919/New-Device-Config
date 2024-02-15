@@ -113,6 +113,35 @@ export PATH="$HOME/rg:$PATH"
 6. Mason
 `:MasonInstall stylua beautysh pylint`
 
+## Bash
+
+1. Show Git Branch in Prompt
+```bash
+# Git branch in prompt.
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\u@\h \w\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+export PROMPT_DIRTRIM=3
+```
+
+2. Auto-Completion like Zsh
+```bash
+# Quick INSTALL to BASHRC (If this doesn't work, please follow Sec 1.3)
+
+curl -L https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz | tar xJf -
+mkdir -p ~/.local/share/blesh
+cp -Rf ble-nightly/* ~/.local/share/blesh/
+rm -rf ble-nightly
+echo 'source ~/.local/share/blesh/ble.sh' >> ~/.bashrc
+```
+
+3. Copy
+```bash
+cp ./.bashrc ~/.bashrc
+```
+
 ## Zsh
 
 1. (Optional) Install ncurses
@@ -139,12 +168,13 @@ make install
 cd .. && rm zsh.tar && rm -r zsh
 ```
 
-3. Config `.bashrc`
+3. Config `.bash_profile`
 
 ```bash
 export PATH=$HOME/zsh-installation/bin:$PATH
 exec zsh
 ```
+`.bash_profile` is only sourced for interactive shells, `.bashrc` is sourced all the time.
 
 4. Install oh-my-zsh
 ```bash
@@ -153,7 +183,7 @@ sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O 
 
 5. Replace `.zshrc` with Customized file
 ```bash
-mv ./.zshrc ~/.zshrc
+cp ./.zshrc ~/.zshrc
 ```
 
 6. Add `OPENAI_API_KEY` for chatgpt plugin
